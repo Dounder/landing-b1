@@ -1,11 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-	<SectionHero />
-	<SectionAbout />
-	<SectionSkills />
-	<SectionProducts />
-	<SectionFooter />
+	<section class="section skills">
+		<h1>Skills</h1>
+	</section>
 </template>
 
 <style lang="scss" scoped></style>
