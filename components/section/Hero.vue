@@ -9,7 +9,7 @@
 		<CommonNavbar />
 		<section class="hero-body">
 			<section class="hero-column">
-				<h1 class="hero-title">Coffe Shop</h1>
+				<h1 class="hero-title title">Coffe Shop</h1>
 				<p class="hero-text text">Experience Pure Perfection: Discover Our Finest Coffee Grains</p>
 				<section class="hero-buttons">
 					<CommonButton color="secondary">View products</CommonButton>
@@ -22,64 +22,75 @@
 </template>
 
 <style lang="scss" scoped>
-.hero {
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-start;
-	background: transparent;
-	text-shadow: 0 0 5px rgba($black, 1);
-	&-body {
-		width: 100%;
-		flex: 1;
+@media screen and (min-width: 320px) {
+	.hero {
+		height: 100vh;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: flex-start;
-	}
-	&-column {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: flex-start;
-		width: 50%;
-		height: 100%;
-	}
-	&-title {
-		font-size: clamp(2rem, 5vw, 4rem);
-		font-family: $title;
-	}
-	&-headline {
-		font-size: 1.5rem;
-		font-family: $body;
-	}
-	&-buttons {
-		display: flex;
-		gap: 1rem;
-		margin-top: 2rem;
-	}
-	&-bg {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-		z-index: -1;
-		box-shadow: inset 0 0 300px 300px rgba($black, 1);
-		img {
+		align-items: center;
+		background: transparent;
+		&-body {
+			text-shadow: 0 0 5px rgba($black, 1);
+			width: 100%;
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		&-column {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
 			width: 100%;
 			height: 100%;
-			object-fit: cover;
+			text-align: center;
 		}
-		&_foreground {
+		&-title {
+			font-size: clamp(2rem, 5vw, 5rem);
+		}
+		&-text {
+			font-size: clamp(1rem, 5vw, 1.5rem);
+			margin-top: 0.5rem;
+		}
+		&-buttons {
+			display: flex;
+			gap: 1rem;
+			margin-top: 2rem;
+		}
+		&-bg {
 			position: absolute;
 			top: 0;
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: radial-gradient(circle, rgba($black, 0) 0%, rgba(#000, 1) 100%);
+			overflow: hidden;
+			z-index: -1;
+			box-shadow: inset 0 0 300px 300px rgba($black, 1);
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: 70% 0%;
+			}
+			&_foreground {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: radial-gradient(circle, rgba($black, 0) 0%, rgba(#000, 1) 100%);
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.hero {
+		&-title {
+			font-size: clamp(3rem, 5vw, 5rem);
 		}
 	}
 }

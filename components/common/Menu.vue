@@ -49,7 +49,7 @@ watch(directionSwiped, (direction) => {
 }
 
 .drawer {
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.8);
 	height: 100%;
 	opacity: 0;
 	position: fixed;
