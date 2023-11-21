@@ -1,21 +1,18 @@
 <script setup lang="ts">
+const { isMobile } = useWindow();
 const schedules = [
-	{ day: 'Monday', hours: '9:00 - 21:00' },
-	{ day: 'Tuesday', hours: '9:00 - 21:00' },
-	{ day: 'Wednesday', hours: '9:00 - 21:00' },
-	{ day: 'Thursday', hours: '9:00 - 21:00' },
-	{ day: 'Friday', hours: '9:00 - 21:00' },
-	{ day: 'Saturday', hours: '11:00 - 16:00' },
+	{ day: 'Monday - Friday', hours: '9:00 - 17:00' },
+	{ day: 'Saturday', hours: '9:00 - 21:00' },
 	{ day: 'Sunday', hours: 'CLOSED' },
 ];
 </script>
 
 <template>
 	<section class="section about">
-		<section class="about-body">
-			<span class="about-subtitle text">Who we are</span>
-			<h4 class="about-title">About our coffee-shop</h4>
-			<p class="about-text">
+		<section class="headline">
+			<span class="headline-subtitle text">Who we are</span>
+			<h4 class="headline-title">About our coffee-shop</h4>
+			<p class="headline-text">
 				At CoffeeShop, we're passionate about delivering an unparalleled coffee experience. From sourcing the finest beans to crafting the perfect
 				roast, our mission is to bring you exceptional quality and flavor in every cup. Our team's dedication to the art of coffee ensures a journey
 				of rich aromas and delightful tastes with every sip. Welcome to the heart of exceptional coffee brewing
@@ -29,30 +26,43 @@ const schedules = [
 					<span class="schedule-hours">{{ schedule.hours }}</span>
 				</li>
 			</ul>
+			<CommonLogo class="about-logo" />
 		</section>
-		<figure class="about-img"><img src="/img/about.png" alt="Coffee grains" /></figure>
-		<CommonLogo class="about-logo" />
 	</section>
 </template>
 
 <style lang="scss" scoped>
-%flex {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
 .about {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 6rem 4rem;
+	gap: 1rem;
 	overflow: hidden;
-	position: relative;
-	&-body {
-		@extend %flex;
-		align-items: flex-start;
-		width: 40%;
+	flex-wrap: wrap;
+	background: transparent;
+	@media screen and (max-width: 768px) {
+		padding: 2rem 1rem;
+	}
+	&-logo {
+		$size: 10rem;
+		position: absolute;
+		top: 50%;
+		right: 1rem;
+		transform: translateY(-50%);
+		width: $size;
+		height: $size;
+		z-index: -1;
+		@media screen and (max-width: 900px) {
+			opacity: 0.1;
+			right: 0;
+		}
+	}
+}
+.headline {
+	width: 60%;
+	@media screen and (max-width: 900px) {
+		width: 100%;
 	}
 	&-subtitle {
 		opacity: 0.8;
@@ -64,31 +74,10 @@ const schedules = [
 	&-text {
 		opacity: 0.7;
 	}
-	&-img {
-		width: 25%;
-		height: 30rem;
-		img {
-			border-radius: 0.3rem;
-			box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
-			height: 100%;
-			object-fit: cover;
-			width: 100%;
-		}
-	}
-	&-logo {
-		$size: 40rem;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: $size;
-		height: $size;
-		opacity: 0.1;
-	}
 }
 .schedule {
-	@extend %flex;
-	width: 35%;
+	position: relative;
+	flex: 1;
 	&-title {
 		font-size: clamp(1rem, 5vw, 1.5rem);
 		margin-bottom: 0.5rem;
